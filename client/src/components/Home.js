@@ -18,6 +18,33 @@ const Home = () => {
     return (
         <div>
             <p>Welcome to my test2</p>
+            <table className='styled-table'>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((user, index) => {
+                        return (
+                            <tr key={index}>
+                                <th>{index+1}</th>
+                                <td>{user.firstName}</td>
+                                <td>{user.lastName}</td>
+                                <td>{user.email}</td>
+                                <td>
+                                    <Link to={`/update/${user.id}`}><button className='btn btn-edit'>Edit</button></Link>
+                                    <Link to={`/delete/${user.id}`}><button className='btn btn-delete'>Delete</button></Link>
+                                    <Link to={`/send/${user.id}`}><button className='btn btn-sendEmail'>Send Email</button></Link>
+                                </td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
         </div>
     );
 }
