@@ -26,6 +26,16 @@ app.get("/", (request, response) => {
     response.send("Server is running!");
 });
 
+app.post("/api/post", (request, response) => {
+    const {lastName, firstName, email} = request.body;
+    const sqlInsert = "INSERT INTO users(firstName, lastName, email) VALUES (?, ?, ?)";
+    db.query(sqlInsert, [firstName, lastName, email], (error, result) => {
+        if(error) {
+            console.log(error);
+        }
+    })
+});
+
 const PORT = 5000;
 
 app.listen(PORT, () => {

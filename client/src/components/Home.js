@@ -18,6 +18,9 @@ const Home = () => {
     return (
         <div>
             <p>Welcome to my test2</p>
+            <Link to="/addUser">
+                <button className='btn btn-addUser'>Add User</button>
+            </Link>
             <table className='styled-table'>
                 <thead>
                     <tr>
